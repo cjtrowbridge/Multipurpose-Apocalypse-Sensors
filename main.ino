@@ -1,8 +1,8 @@
+#include "geiger.h" 
 #include "sensors.h" 
 #include "lcd.h"
 #include "json.h"
 #include "wifi.h" 
-
 
 void setup() {
   //Initialize serial and wait for port to open:
@@ -12,6 +12,7 @@ void setup() {
   setupDHT();
   setupLCD();
   setupWifi();
+  setupGeiger();
 
   updateSensorData();
 }

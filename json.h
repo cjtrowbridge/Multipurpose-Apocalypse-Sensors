@@ -10,6 +10,7 @@ String getJSON(){
   ptr +="\"Humidity\": \"";
   ptr +=(float)SensorHumidity;
   ptr +="\",\n";
+  /*
   //MQ2 sensor values
   ptr +="\"MQ2\": \"";
   ptr +=(int)SensorMQ2;
@@ -22,6 +23,11 @@ String getJSON(){
   ptr +="\",\n";
   ptr +="\"Smoke(ppm)\": \"";
   ptr +=(int)SensorSmoke;
+  ptr +="\",\n";
+  */
+  //Geiger sensor values
+  ptr +="\"Geiger CPM\": \"";
+  ptr +=(float)SensorGeigerCPM;
   ptr +="\",\n";
   //PM2.5 sensor values
   ptr +="\"PM2.5\": \"";

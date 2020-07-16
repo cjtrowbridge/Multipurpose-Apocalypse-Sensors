@@ -18,8 +18,9 @@ void updateSensorData(){
   Serial.println("");
   Serial.println("Updating sensor data...");
   updatePM();
-  updateMQ2();
+  //updateMQ2();
   updateDHT22();
+  updateGeiger();
   SensorsLastUpdated = millis();
   Serial.println("All sensors updated. Waiting thirty seconds...");
   Serial.println("");

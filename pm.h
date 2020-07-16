@@ -3,7 +3,7 @@
 const int sharpLEDPin = 0;   // Arduino digital pin 7 connect to sensor LED.
 const int sharpVoPin = A1;   // Arduino analog pin 5 connect to sensor Vo.
 /// For averaging last N raw voltage readings.
-#define N 100
+#define N 200
 static unsigned long VoRawTotal = 0;
 static int VoRawCount = 0;
 static float Voc = 0.6; // Set the typical output voltage in Volts when there is zero dust. 

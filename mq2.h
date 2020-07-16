@@ -1,3 +1,4 @@
+
 //#define MQPower (4)
 #define         MQ_PIND                      (3)
 #define         MQ_PIN                       (A2)     //define which analog input channel you are going to use
@@ -88,6 +89,11 @@ int MQGetGasPercentage(float rs_ro_ratio, int gas_id)
 
 
 void updateMQ2(){
+  //SensorSmoke;
+  //SensorLP;
+  //SensorCO;
+  //SensorMQ2;
+  
   SensorMQ2 = digitalRead(MQ_PIND);
   Serial.print("MQ2(Bool): ");
   Serial.println(SensorMQ2);
@@ -101,5 +107,6 @@ void updateMQ2(){
   Serial.print("CO: ");
   Serial.println(SensorCO);
   Serial.print("LP: ");
-  Serial.println(SensorLP);  
+  Serial.println(SensorLP);
+  
 }

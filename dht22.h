@@ -1,6 +1,6 @@
 #include "DHT.h"
 #define DHTPIN 2
-#define DHTTYPE DHT22
+#define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
 
 DHT dht(DHTPIN, DHTTYPE);  
 
@@ -9,6 +9,10 @@ void setupDHT(){
 }
 
 void updateDHT22(){
+  //SensorTemperatureC;
+  //SensorTemperatureF;
+  //SensorHumidity;
+  //pinMode(DHTPIN, INPUT_PULLUP);
   delayMicroseconds(10);
 
 

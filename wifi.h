@@ -3,11 +3,11 @@
 #include <RTCZero.h>
 #include <ArduinoOTA.h>
 
-#define SECRET_SSID ""
-#define SECRET_PASS ""
+#define SECRET_SSID "The Lodge"
+#define SECRET_PASS "azula1969"
 
 char ssid[] = SECRET_SSID;        // your network SSID (name)
-char pass[] = SECRET_PASS;        // your network password (use for WPA, or use as key for WEP)
+char pass[] = SECRET_PASS;    // your network password (use for WPA, or use as key for WEP)
 int keyIndex = 0;                 // your network key Index number (needed only for WEP)
 
 WiFiServer server(80);
@@ -51,7 +51,32 @@ void setupWifi(){
   delay(100);
 }
 
+void checkWifi(){
+  int status = WiFi.status();
+  // attempt to connect to Wifi network:
+  while ( status != WL_CONNECTED) {
+
+    NVIC_SystemReset();
+
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Reconnecting");
+    lcd.setCursor(0, 1);
+    lcd.print(ssid);
+    
+    Serial.print("Reconnecting");
+    Serial.println(ssid);
+    // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
+    status = WiFi.begin(ssid, pass);
+    delay(100);
+  }
+}
+
 void loopWifi(){
+
+  //Check if wifi is still connected
+  checkWifi();
+  
   //Listen for OTA
   ArduinoOTA.poll();
 
@@ -126,7 +151,7 @@ void loopWifi(){
           client.println(SensorHumidity);
           break;
         }
-
+/*
         //Endpoints for the MQ-2 sensor
         if (currentLine.endsWith("GET /co")) {
           updateMQ2();
@@ -160,6 +185,40 @@ void loopWifi(){
           client.println(SensorMQ2);
           break;
         }
+        */
+        if (currentLine.endsWith("GET /?backlight=on")) {
+          backlightOn();
+          client.println("HTTP/1.1 200 OK");
+          client.println("Content-type:text/html");
+          client.println("");
+          client.println("Ok");
+          break;
+        }
+        if (currentLine.endsWith("GET /?backlight=off")) {
+          backlightOff();
+          client.println("HTTP/1.1 200 OK");
+          client.println("Content-type:text/html");
+          client.println("");
+          client.println("Ok");
+          break;
+        }
+        if (currentLine.endsWith("GET /?backlight=toggle")) {
+          backlightToggle();
+          client.println("HTTP/1.1 200 OK");
+          client.println("Content-type:text/html");
+          client.println("");
+          client.println("Ok");
+          break;
+        }
+        if (currentLine.endsWith("GET /?backlight=peek")) {
+          backlightPeek();
+          client.println("HTTP/1.1 200 OK");
+          client.println("Content-type:text/html");
+          client.println("");
+          client.println("Ok");
+          break;
+        }
+        
       }
     }
     // close the connection:
