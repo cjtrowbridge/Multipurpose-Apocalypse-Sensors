@@ -1,3 +1,4 @@
+#include "battery.h"
 #include "geiger.h" 
 #include "sensors.h" 
 #include "lcd.h"
@@ -9,6 +10,7 @@ void setup() {
   Serial.begin(9600);
   delay(2000);
 
+  setupBattery();
   setupDHT();
   setupLCD();
   setupWifi();

@@ -41,9 +41,11 @@ void setupWifi(){
   if(ipStr=="192.168.86.10"){
     host="Inside Sensors";
     Ro           = .04; // (Inside)
+    
   }else if(ipStr=="192.168.86.11"){
     host="Outside Sensors";
     Ro           = .06; // (Outside)
+    backlightOn();
   }
   lcd.clear();
   lcd.setCursor(0, 0);

@@ -22,6 +22,7 @@ void updateSensorData(){
   updateDHT22();
   updateGeiger();
   SensorsLastUpdated = millis();
+  updateBattery();
   Serial.println("All sensors updated. Waiting thirty seconds...");
   Serial.println("");
 }

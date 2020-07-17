@@ -83,7 +83,9 @@ void loopLCD(){
         lcd.print((int)SensorTemperatureF);
         lcd.print("f ");
         lcd.print((int)SensorHumidity);
-        lcd.print("%h");
+        lcd.print("%h ");
+        lcd.print(sensorBatteryVoltage);
+        lcd.print("v");
         break;
       /*
       case 0:

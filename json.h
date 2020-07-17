@@ -36,6 +36,9 @@ String getJSON(){
   //Meta values
   ptr +="\"DataAge(ms)\": \"";
   ptr +=(int)(millis() - SensorsLastUpdated);
+  ptr +="\",\n";
+  ptr +="\"Battery(v)\": \"";
+  ptr +=sensorBatteryVoltage;
   ptr +="\"\n";
   ptr +="}\n";
   return ptr;
