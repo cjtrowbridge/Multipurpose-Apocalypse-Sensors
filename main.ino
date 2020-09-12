@@ -15,6 +15,8 @@ void setup() {
   setupLCD();
   setupWifi();
   setupGeiger();
+  setupPMi();
+  setupPMl();
 
   updateSensorData();
 }

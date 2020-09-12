@@ -41,7 +41,7 @@ void setupWifi(){
   if(ipStr=="192.168.86.10"){
     host="Inside Sensors";
     Ro           = .04; // (Inside)
-    
+    //backlightOn();
   }else if(ipStr=="192.168.86.11"){
     host="Outside Sensors";
     Ro           = .06; // (Outside)
@@ -118,13 +118,13 @@ void loopWifi(){
           break;
         }
 
-        //Endpoint for the PM2.5 sensor
+        //Endpoint for the PM2.5 laser sensor
         if (currentLine.endsWith("GET /pm2.5")) {
-          updatePM();
+          updatePMl();
           client.println("HTTP/1.1 200 OK");
           client.println("Content-type:text/html");
           client.println("");
-          client.println(SensorPM);
+          client.println(SensorPMl25);
           break;
         }
 

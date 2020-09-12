@@ -75,51 +75,43 @@ void loopLCD(){
     switch (displaySlide) {
       case 0:
         lcd.setCursor(0, 0);
-        lcd.print(SensorPM);
-        lcd.print("ugm3 ");
-        lcd.print(SensorGeigerCPM);
-        lcd.print("cpm");
+        lcd.print("PM-L 1,2.5,10");
         lcd.setCursor(0, 1);
-        lcd.print((int)SensorTemperatureF);
-        lcd.print("f ");
-        lcd.print((int)SensorHumidity);
-        lcd.print("%h ");
-        lcd.print(sensorBatteryVoltage);
-        lcd.print("v");
-        break;
-      /*
-      case 0:
-        lcd.setCursor(0, 0);
-        lcd.print("PM2.5(ug/m^3)");
-        lcd.setCursor(0, 1);
-        lcd.print(SensorPM);
-        lcd.setCursor(0, 0);
+        lcd.print((int)SensorPMl10);
+        lcd.print(", ");
+        lcd.print((int)SensorPMl25);
+        lcd.print(", ");
+        lcd.print((int)SensorPMl100);
         break;
       case 1:
+        lcd.setCursor(0, 0);
+        lcd.print("PM IR (ug/m^3)");
+        lcd.setCursor(0, 1);
+        lcd.print((int)SensorPMia);
+        lcd.print(", ");
+        lcd.print((int)SensorPMib);
+        lcd.print(", ");
+        lcd.print((int)SensorPMic);
+        lcd.print(", ");
+        lcd.print((int)SensorPMid);
+        lcd.setCursor(0, 0);
+        break;
+      case 2:
         lcd.setCursor(0, 0);
         lcd.print("Temp(F): ");
         lcd.print(SensorTemperatureF);
         lcd.setCursor(0, 1);
-        lcd.print("Temp(C): ");
-        lcd.print(SensorTemperatureC);
-        break;
-      case 2:
-        lcd.setCursor(0, 0);
-        lcd.print("Smoke(PPM): ");
-        lcd.print(SensorSmoke);
-        lcd.setCursor(0, 1);
-        lcd.print("Smoke(T/F): ");
-        lcd.print(SensorMQ2);
+        lcd.print("Humidity: ");
+        lcd.print((int)SensorHumidity);
+        lcd.print("%");
         break;
       case 3:
         lcd.setCursor(0, 0);
-        lcd.print("LPG(PPM): ");
-        lcd.print(SensorLP);
+        lcd.print("Geiger Counter:");
         lcd.setCursor(0, 1);
-        lcd.print("CO(PPM): ");
-        lcd.print(SensorCO);
+        lcd.print(SensorGeigerCPM);
+        lcd.print("cpm");
         break;
-      */
       default:
         LCDLastUpdated = millis();
         break;

@@ -6,7 +6,14 @@ float SensorSmoke;
 float SensorLP;
 float SensorCO;
 int SensorMQ2;
-float SensorPM;
+float SensorPMl10;
+float SensorPMl25;
+float SensorPMl100;
+float SensorPMi;
+float SensorPMia;
+float SensorPMib;
+float SensorPMic;
+float SensorPMid;
 int SensorsLastUpdated;
 float Ro;
 
@@ -17,7 +24,8 @@ float Ro;
 void updateSensorData(){
   Serial.println("");
   Serial.println("Updating sensor data...");
-  updatePM();
+  updatePMi();
+  updatePMl();
   //updateMQ2();
   updateDHT22();
   updateGeiger();
